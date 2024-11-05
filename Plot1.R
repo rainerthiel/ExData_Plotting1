@@ -13,6 +13,24 @@ library(data.table)
 library(lubridate)
 source("Helpers.R")
 
-source <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+#
+# Load and prepare data
+#
+
+sourceUrl <- "https://d396qusza40orc.cloudfront.net"
+sourceFile <- "exdata%2Fdata%2Fhousehold_power_consumption.zip"
 target <- "data.zip"
-consumption <- getData(source, target)
+consumption <- getData(sourceUrl, sourceFile, target)
+
+#
+# Generate the plot and save it as a png file in the working directory
+#
+
+png(filename="plot1.png") # height/width defaults are 480px
+
+hist(consumption$Global_active_power,
+     main = 'Global Active Power',
+     xlab = 'Global Active Power (kilowatts)',
+     col = 'red')
+
+dev.off()
