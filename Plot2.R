@@ -3,8 +3,8 @@
 #
 # Synopsis
 #
-# - Load and prepare the working data (helper function getData())
-# - Generate the plot and wrie it out as a png file
+# - Load and prepare the working data
+# - Generate the plot and write it out as a png file
 #
 
 library(dplyr)
@@ -29,14 +29,10 @@ consumption <- getData(sourceUrl, sourceFile, target)
 
 png(filename = plotFile) # height/width defaults are 480px
 
-with(consumption, {
-    plot(Global_active_power ~ DateTime, 
-         type="l",
-         ylab = 'Global Active Power (kilowatts)',
-         xlab = NA,
-         xaxt='n'
-    )
-    axis.POSIXct(1, DateTime, format = "%a")
-})
+createPlot2()
 
 dev.off()
+
+#
+# End
+#

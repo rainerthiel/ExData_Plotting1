@@ -22,6 +22,8 @@ target <- "data.zip"
 plotFile <- "plot1.png"
 
 consumption <- getData(sourceUrl, sourceFile, target)
+# If you want to play with different date ranges...
+# consumption <- getData(sourceUrl, sourceFile, target, from='2008-03-07', to='2008-03-09')
 
 #
 # Generate the plot and save it as a png file in the working directory

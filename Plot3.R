@@ -1,9 +1,9 @@
 # Exploratory Data Analysis - Project 1
-# This script reproduces Plot2
+# This script reproduces Plot3
 #
 # Synopsis
 #
-# - Load and prepare the working data (helper function getData())
+# - Load and prepare the working data
 # - Generate the plot and wrie it out as a png file
 #
 
@@ -29,19 +29,10 @@ consumption <- getData(sourceUrl, sourceFile, target)
 
 png(filename = plotFile) # height/width defaults are 480px
 
-with(consumption, {
-     plot(DateTime, Sub_metering_1,
-          ylab = 'Energy sub metering',
-          xlab = NA,
-          type='n',
-          xaxt='n'
-          )
-     axis.POSIXct(1, DateTime, format = "%a")
-     lines(DateTime, Sub_metering_1)
-     lines(DateTime, Sub_metering_2, col = 'red')
-     lines(DateTime, Sub_metering_3, col = 'blue')
-     legend('topright', lwd = 2, col = c('black', 'red', 'blue'), 
-            legend = c('Sub_metering_1', 'Sub_metering_2', 'Sub_metering_3'))
-     })
+createPlot3()
 
 dev.off()
+
+#
+# End
+#
